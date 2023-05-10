@@ -17,19 +17,31 @@ class _MyStatefulWidgetState extends State<Inicial> {
         ),
         body: Center(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 30),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Olá! Bem vindo ao BARQ!"),
+            ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Card(
                   child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "OFERTAS DO DIA!\n" "\nFeitas especialmente para você!",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     width: 350,
                     height: 100,
                     decoration: BoxDecoration(
                         color: Color(0xFF00265F),
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/card1.png"),
+                            fit: BoxFit.fitHeight)),
                   ),
                 ),
               ],
