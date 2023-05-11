@@ -11,17 +11,27 @@ class _MyStatefulWidgetState extends State<Inicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFF00265F),
-          title: Text("BARQ"),
-        ),
-        body: Center(
-            child: Column(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF00265F),
+        centerTitle: true,
+        title: Text("BARQ"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Center(
+        child: Column(
           children: [
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Olá! Bem vindo ao BARQ!"),
+              child: Align(
+                alignment: Alignment(-1, 0),
+                child: Text("         Olá! Bem vindo ao BARQ!"),
+              ),
             ),
             SizedBox(height: 10),
             Row(
@@ -30,7 +40,8 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 Container(
                   alignment: Alignment(-1, 0),
                   child: Text(
-                    "OFERTAS DO DIA!\n" "\nFeitas especialmente para você!",
+                    "   OFERTAS DO DIA!\n"
+                    "   Feitas especialmente para você!\n   \n   Ver ofertas",
                     style: TextStyle(color: Colors.white),
                   ),
                   width: 350,
@@ -45,7 +56,63 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 ),
               ],
             ),
+            SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    " Bebidas Alcóolicas\n",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 100,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF00265F),
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          alignment: Alignment(0, 0),
+                          image: AssetImage("assets/images/card2.png"),
+                          fit: BoxFit.fitHeight)),
+                ),
+                Container(
+                  alignment: Alignment(-1, 0),
+                  child: Text(
+                    " Bebidas Alcóolicas\n",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 100,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF00265F),
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          alignment: Alignment(0, 0),
+                          image: AssetImage("assets/images/card2.png"),
+                          fit: BoxFit.fitHeight)),
+                ),
+                Container(
+                  alignment: Alignment(-1, 0),
+                  child: Text(
+                    " Bebidas Alcóolicas\n",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  width: 100,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF00265F),
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          alignment: Alignment(0, 0),
+                          image: AssetImage("assets/images/card2.png"),
+                          fit: BoxFit.fitHeight)),
+                )
+              ],
+            ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
