@@ -27,22 +27,21 @@ class _MyStatefulWidgetState extends State<Inicial> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Card(
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "OFERTAS DO DIA!\n" "\nFeitas especialmente para você!",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    width: 350,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        color: Color(0xFF00265F),
-                        borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/card1.png"),
-                            fit: BoxFit.fitHeight)),
+                Container(
+                  alignment: Alignment(-1, 0),
+                  child: Text(
+                    "OFERTAS DO DIA!\n" "\nFeitas especialmente para você!",
+                    style: TextStyle(color: Colors.white),
                   ),
+                  width: 350,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF00265F),
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          alignment: Alignment(1, 0),
+                          image: AssetImage("assets/images/card1.png"),
+                          fit: BoxFit.fitHeight)),
                 ),
               ],
             ),
