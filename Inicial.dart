@@ -82,6 +82,7 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 ),
               ],
             ),
+            // CARDS CATEGORIAS
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -160,6 +161,8 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 )
               ],
             ),
+
+            // CARDS DOS MAIS PEDIDOS
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -246,6 +249,7 @@ class _MyStatefulWidgetState extends State<Inicial> {
           ],
         ),
       ),
+      // MENU INFERIOR
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
