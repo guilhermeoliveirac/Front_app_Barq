@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_login/BebidasAlcoolicas.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -8,6 +9,7 @@ class Inicial extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<Inicial> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,16 +48,33 @@ class _MyStatefulWidgetState extends State<Inicial> {
               children: [
                 Container(
                   alignment: Alignment(-1, 0),
-                  child: Text(
-                    "   OFERTAS DO DIA!\n"
-                    "   Feitas especialmente para você!\n   \n   Ver ofertas",
-                    style: TextStyle(color: Colors.white),
+                  child: Stack(
+                    children: [
+                      Text(
+                        "   OFERTAS DO DIA!\n"
+                        "   Feitas especialmente para você!\n   \n   Ver ofertas",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      Positioned(
+                        right: 100,
+                        top: 10,
+                        bottom: -47,
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                   width: 350,
-                  height: 100,
+                  height: 115,
                   decoration: BoxDecoration(
                       color: Color(0xFF00265F),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                           alignment: Alignment(1, 0),
                           image: AssetImage("assets/images/card1.png"),
@@ -147,7 +166,7 @@ class _MyStatefulWidgetState extends State<Inicial> {
               child: Align(
                 alignment: Alignment(-1, 0),
                 child: Text(
-                  "     Menu Categorias ",
+                  "     Mais pedidos ",
                   style: TextStyle(
                     color: Color(0xFF00265F),
                     fontSize: 15,
@@ -156,49 +175,101 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 ),
               ),
             ),
+            SizedBox(height: 5),
             Container(
               alignment: Alignment(-1, 0),
-              child: Text(
-                "   Dobradinha de Chopp\n",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Stack(
+                children: [
+                  Text(
+                    "   Dobradinha de Chopp\n   15,00 \n\n   Adicionar ao carrinho        ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Positioned(
+                    right: -4,
+                    top: 10,
+                    bottom: -45,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
               width: 350,
               height: 90,
               decoration: BoxDecoration(
                   color: Color(0xFF00265F),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       alignment: Alignment(1, 0),
                       image: AssetImage("assets/images/card5.png"),
                       fit: BoxFit.fitHeight)),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 15),
             Container(
               alignment: Alignment(-1, 0),
-              child: Text(
-                "   Dobradinha de Chopp\n",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Stack(
+                children: [
+                  Text(
+                    "   Dobradinha de Chopp\n   15,00 \n\n   Adicionar ao carrinho        ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Positioned(
+                    right: -4,
+                    top: 10,
+                    bottom: -45,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
               width: 350,
               height: 90,
               decoration: BoxDecoration(
                   color: Color(0xFF00265F),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       alignment: Alignment(1, 0),
                       image: AssetImage("assets/images/card5.png"),
                       fit: BoxFit.fitHeight)),
-            )
+            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        backgroundColor: Color(0xFF00265F),
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.blueAccent,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            label: 'Solicitar Garçom',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.logout_outlined),
+            label: 'Sair',
+          ),
+        ],
       ),
     );
   }
