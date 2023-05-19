@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_login/BebidasAlcoolicas.dart';
+import 'package:flutter_application_login/Inicial.dart';
+import 'package:flutter_application_login/VisualizandoBebida.dart';
 import 'Login.dart';
 
 void main() {

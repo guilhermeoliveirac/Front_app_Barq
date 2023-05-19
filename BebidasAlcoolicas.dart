@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_login/CarrinhoDeCompras.dart';
+import 'package:flutter_application_login/VisualizandoBebida.dart';
 
 class BebidasAlcoolicas extends StatefulWidget {
   const BebidasAlcoolicas({super.key});
@@ -19,7 +21,10 @@ class _MyStatefulWidgetState extends State<BebidasAlcoolicas> {
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CarrinhoDeCompras()));
+            },
           ),
         ],
       ),
@@ -83,62 +88,72 @@ class _MyStatefulWidgetState extends State<BebidasAlcoolicas> {
               width: 350,
               height: 90,
               decoration: BoxDecoration(
-                  color: Color(0xFF00265F).withOpacity(0.26),
+                  color: Color(0xFF00265F).withOpacity(0.10),
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       alignment: Alignment(1, 0),
                       image: AssetImage("assets/images/card6.png"),
                       fit: BoxFit.fitHeight)),
             ),
-            // primeiro container
+
+            // Segundo container
             SizedBox(height: 15),
-            Container(
-              alignment: Alignment(-1, 0),
-              child: Stack(
-                children: [
-                  Text(
-                    "   Cerveja Heineken 600 ml\n   \n\n",
-                    style: TextStyle(
-                      color: Color(0xFF00265F),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Positioned(
-                    left: 9,
-                    top: 30,
-                    child: Container(
-                      width: 93,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xb200255e),
+            // navegando em páginas
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VisualizandoBebida()));
+              },
+              child: Container(
+                alignment: Alignment(-1, 0),
+                child: Stack(
+                  children: [
+                    Text(
+                      "   Cerveja Heineken 600 ml\n   \n\n",
+                      style: TextStyle(
+                        color: Color(0xFF00265F),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
                       ),
-                      child: Center(
-                        child: Text(
-                          "RS 10,00",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                    ),
+                    Positioned(
+                      left: 9,
+                      top: 30,
+                      child: Container(
+                        width: 93,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color(0xb200255e),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "RS 10,00",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
+                width: 350,
+                height: 90,
+                decoration: BoxDecoration(
+                    color: Color(0xFF00265F).withOpacity(0.10),
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        alignment: Alignment(1, 0),
+                        image: AssetImage("assets/images/card7.png"),
+                        fit: BoxFit.fitHeight)),
               ),
-              width: 350,
-              height: 90,
-              decoration: BoxDecoration(
-                  color: Color(0xFF00265F).withOpacity(0.26),
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      alignment: Alignment(1, 0),
-                      image: AssetImage("assets/images/card7.png"),
-                      fit: BoxFit.fitHeight)),
             ),
-            // primeiro container
+            // Terceiro container
             SizedBox(height: 15),
             Container(
               alignment: Alignment(-1, 0),
@@ -179,14 +194,14 @@ class _MyStatefulWidgetState extends State<BebidasAlcoolicas> {
               width: 350,
               height: 90,
               decoration: BoxDecoration(
-                  color: Color(0xFF00265F).withOpacity(0.26),
+                  color: Color(0xFF00265F).withOpacity(0.10),
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       alignment: Alignment(1, 0),
                       image: AssetImage("assets/images/card8.png"),
                       fit: BoxFit.fitHeight)),
             ),
-            // primeiro container
+            // Quarto container
             SizedBox(height: 15),
             Container(
               alignment: Alignment(-1, 0),
@@ -227,11 +242,59 @@ class _MyStatefulWidgetState extends State<BebidasAlcoolicas> {
               width: 350,
               height: 90,
               decoration: BoxDecoration(
-                  color: Color(0xFF00265F).withOpacity(0.26),
+                  color: Color(0xFF00265F).withOpacity(0.10),
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       alignment: Alignment(1, 0),
                       image: AssetImage("assets/images/card9.png"),
+                      fit: BoxFit.fitHeight)),
+            ),
+            // Quinto container
+            SizedBox(height: 15),
+            Container(
+              alignment: Alignment(-1, 0),
+              child: Stack(
+                children: [
+                  Text(
+                    "   Drink Morango gin\n   \n\n",
+                    style: TextStyle(
+                      color: Color(0xFF00265F),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Positioned(
+                    left: 9,
+                    top: 30,
+                    child: Container(
+                      width: 93,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xb200255e),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "RS 25,00",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              width: 350,
+              height: 90,
+              decoration: BoxDecoration(
+                  color: Color(0xFF00265F).withOpacity(0.10),
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      alignment: Alignment(1, 0),
+                      image: AssetImage("assets/images/card10.png"),
                       fit: BoxFit.fitHeight)),
             ),
           ], //

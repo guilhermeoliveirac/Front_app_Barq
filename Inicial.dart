@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_login/BebidasAlcoolicas.dart';
+import 'package:flutter_application_login/CarrinhoDeCompras.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -20,7 +21,10 @@ class _MyStatefulWidgetState extends State<Inicial> {
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => CarrinhoDeCompras()));
+            },
           ),
         ],
       ),
@@ -46,39 +50,47 @@ class _MyStatefulWidgetState extends State<Inicial> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  alignment: Alignment(-1, 0),
-                  child: Stack(
-                    children: [
-                      Text(
-                        "   OFERTAS DO DIA!\n"
-                        "   Feitas especialmente para você!\n   \n   Ver ofertas",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BebidasAlcoolicas()));
+                  },
+                  child: Container(
+                    alignment: Alignment(-1, 0),
+                    child: Stack(
+                      children: [
+                        Text(
+                          "   OFERTAS DO DIA!\n"
+                          "   Feitas especialmente para você!\n   \n   Ver ofertas",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w300,
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        right: 100,
-                        top: 10,
-                        bottom: -47,
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
+                        Positioned(
+                          right: 100,
+                          top: 10,
+                          bottom: -47,
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    width: 350,
+                    height: 115,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF00265F),
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            alignment: Alignment(1, 0),
+                            image: AssetImage("assets/images/card1.png"),
+                            fit: BoxFit.fitHeight)),
                   ),
-                  width: 350,
-                  height: 115,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF00265F),
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          alignment: Alignment(1, 0),
-                          image: AssetImage("assets/images/card1.png"),
-                          fit: BoxFit.fitHeight)),
                 ),
               ],
             ),
@@ -102,24 +114,33 @@ class _MyStatefulWidgetState extends State<Inicial> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "   \n   Bebidas\n Alcoólicas\n",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                // navegando para outras páginas
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BebidasAlcoolicas()));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "   \n   Bebidas\n Alcoólicas\n",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    width: 100,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF00265F),
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            alignment: Alignment(0, 0),
+                            image: AssetImage("assets/images/card2.png"),
+                            fit: BoxFit.fitHeight)),
                   ),
-                  width: 100,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF00265F),
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          alignment: Alignment(0, 0),
-                          image: AssetImage("assets/images/card2.png"),
-                          fit: BoxFit.fitHeight)),
                 ),
                 Container(
                   alignment: Alignment(-1, 0),
