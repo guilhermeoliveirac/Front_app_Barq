@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_login/BebidasAlcoolicas.dart';
 import 'package:flutter_application_login/CarrinhoDeCompras.dart';
+import 'package:flutter_application_login/VerOfertas.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -52,10 +53,8 @@ class _MyStatefulWidgetState extends State<Inicial> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BebidasAlcoolicas()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => VerOfertas()));
                   },
                   child: Container(
                     alignment: Alignment(-1, 0),

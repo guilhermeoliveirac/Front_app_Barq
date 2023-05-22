@@ -24,49 +24,70 @@ class _MyStatefulWidgetState extends State<VisualizandoBebida> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                "assets/images/FundoBebidas.png",
-                fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/FundoBebidas.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Center(
+            child: Column(
+              children: [
+                SizedBox(height: 300),
+                Container(
+                  width: 400,
+                  height: 347,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 50,
+            top: 10,
+            child: Align(
+              child: SizedBox(
+                width: 300,
+                height: 300,
+                child: Image.asset(
+                  'assets/images/bebida.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            Positioned(
-              left: 0,
-              top: 406,
-              child: Align(
-                child: SizedBox(
-                  width: 440,
-                  height: 432,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
+          ),
+          Positioned(
+            child: Align(
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x3f000000),
+                        offset: Offset(0, 4),
+                        blurRadius: 2,
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
             ),
-            /*
-            Positioned(
-              left: 9,
-              top: 30,
-              child: Align(
-                child: Image.asset(
-                  "assets/images/FundoBebidas.png",
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            */
-          ],
-        ), //
+          )
+        ],
       ),
+
       // MENU INFERIOR
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
