@@ -1,0 +1,26 @@
+      // MENU INFERIOR
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        backgroundColor: Color(0xFF00265F),
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.blueAccent,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            label: 'Solicitar Garçom',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.logout_outlined),
+            label: 'Sair',
+          ),
+        ],
+      ),
