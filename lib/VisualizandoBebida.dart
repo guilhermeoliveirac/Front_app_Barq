@@ -111,7 +111,10 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                                 return AlertDialog(
                                   title: Text(
                                       'Adicionado ao carrinho com sucesso!'),
+                                  actionsOverflowAlignment: OverflowBarAlignment.center,
+                                  //actionsAlignment: MainAxisAlignment.center,
                                   actions: [
+                                
                                     ElevatedButton(
                                       onPressed: () {
                                         // Lógica para adicionar ao carrinho
@@ -119,6 +122,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                                       },
                                       child: Text('Adicionar ao carrinho'),
                                       style: ElevatedButton.styleFrom(
+                                        alignment:Alignment.center,
                                         fixedSize: Size(250, 40),
                                         backgroundColor: Color(0xFF00265F),
                                         primary: Colors.white,
@@ -135,6 +139,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                                       },
                                       child: Text('Continuar comprando'),
                                       style: ElevatedButton.styleFrom(
+                                        alignment:Alignment.center,
                                         fixedSize: Size(250, 40),
                                         backgroundColor: Colors.white,
                                         primary: Color(0xFF00265F),
