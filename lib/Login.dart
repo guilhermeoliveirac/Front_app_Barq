@@ -14,6 +14,10 @@ class _MyStatefulWidgetState extends State<Login> {
   // para funcionar o checkbox
   bool isChecked = false;
 
+  bool VerificarTermos() {
+    return isChecked;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +52,36 @@ class _MyStatefulWidgetState extends State<Login> {
               ),
               SizedBox(height: 100),
               ElevatedButton(
+                // em caso de não aceitar os termos de uso, retorna o código abaixo
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Inicial()));
+                  if (VerificarTermos()) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Inicial()));
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("Termos de uso não aceito!"),
+                          content: Text(
+                              "Querido(a) cliente, você deve aceitar os termos de uso para realizar seu pedido em nosso cardápio."),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "Fechar",
+                                style: TextStyle(
+                                  color: Color(0xFF00265F),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(370, 62),
@@ -68,25 +99,33 @@ class _MyStatefulWidgetState extends State<Login> {
               SizedBox(height: 35),
               ElevatedButton(
                 onPressed: () {
-                  // Popup de solicitar garçom
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("Garçom solicitado!"),
-                          content: Text("Em instantes lhe atenderá, aguarde!"),
-                          actions: <Widget>[
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text(
-                                  "Fechar",
-                                  selectionColor: Color(0xFF00265F),
-                                )),
-                          ],
-                        );
-                      });
+                  if (VerificarTermos()) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Inicial()));
+                  } else {
+                    // Popup de solicitar garçom
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Garçom solicitado!"),
+                            content:
+                                Text("Em instantes lhe atenderá, aguarde!"),
+                            actions: <Widget>[
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text(
+                                    "Fechar",
+                                    style: TextStyle(
+                                      color: Color(0xFF00265F),
+                                    ),
+                                  )),
+                            ],
+                          );
+                        });
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(370, 62),

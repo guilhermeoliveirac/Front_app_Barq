@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_login/BebidasAlcoolicas.dart';
+import 'package:flutter_application_login/BebidasNaoAlcoolicas.dart';
 import 'package:flutter_application_login/CarrinhoDeCompras.dart';
+import 'package:flutter_application_login/Petiscos.dart';
 import 'package:flutter_application_login/VerOfertas.dart';
 import 'package:provider/provider.dart';
 import 'MyBottomNavigationBar.dart';
@@ -57,10 +59,9 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 child: Text(
                   "        Olá, Bem vindo ao BARQ!",
                   style: TextStyle(
-                    color: Color(0xFF00265F),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
+                      color: Color(0xFF00265F),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -158,47 +159,60 @@ class _MyStatefulWidgetState extends State<Inicial> {
                             fit: BoxFit.fitHeight)),
                   ),
                 ),
-                Container(
-                  alignment: Alignment(-1, 0),
-                  child: Text(
-                    "   \n      Bebidas\n          não \n    Alcoólicas\n",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BebidasNaoAlcoolicas()));
+                  },
+                  child: Container(
+                    alignment: Alignment(-1, 0),
+                    child: Text(
+                      "   \n      Bebidas\n          não \n    Alcoólicas\n",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    width: 100,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF00265F),
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            alignment: Alignment(0, 0),
+                            image: AssetImage("assets/images/card3.png"),
+                            fit: BoxFit.fitHeight)),
                   ),
-                  width: 100,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF00265F),
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          alignment: Alignment(0, 0),
-                          image: AssetImage("assets/images/card3.png"),
-                          fit: BoxFit.fitHeight)),
                 ),
-                Container(
-                  alignment: Alignment(-1, 0),
-                  child: Text(
-                    "     Petiscos",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Petiscos()));
+                  },
+                  child: Container(
+                    alignment: Alignment(-1, 0),
+                    child: Text(
+                      "     Petiscos",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    width: 100,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF00265F),
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            alignment: Alignment(0, 0),
+                            image: AssetImage("assets/images/card4.png"),
+                            fit: BoxFit.fitHeight)),
                   ),
-                  width: 100,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF00265F),
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          alignment: Alignment(0, 0),
-                          image: AssetImage("assets/images/card4.png"),
-                          fit: BoxFit.fitHeight)),
-                )
+                ),
               ],
             ),
-
             // CARDS DOS MAIS PEDIDOS
             SizedBox(height: 20),
             Padding(
@@ -215,6 +229,7 @@ class _MyStatefulWidgetState extends State<Inicial> {
                 ),
               ),
             ),
+
             SizedBox(height: 5),
             Container(
               alignment: Alignment(-1, 0),

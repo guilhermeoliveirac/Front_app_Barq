@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_login/CarrinhoDeCompras.dart';
+import 'package:flutter_application_login/AdicionadoAoCarrinho.dart';
+import 'package:flutter_application_login/BebidasAlcoolicas.dart';
+import 'package:flutter_application_login/Inicial.dart';
+import 'package:flutter_application_login/Login.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/rendering.dart';
+import 'CarrinhoDeCompras.dart';
 
-class VisualizandoBebida extends StatefulWidget {
-  const VisualizandoBebida({Key? key}) : super(key: key);
+class VisualizandoMaisPedidos extends StatefulWidget {
+  const VisualizandoMaisPedidos({Key? key}) : super(key: key);
 
   @override
-  State<VisualizandoBebida> createState() => _VisualizandoBebidaState();
+  State<VisualizandoMaisPedidos> createState() => _VisualizandoBebidaState();
 }
 
-class _VisualizandoBebidaState extends State<VisualizandoBebida> {
+class _VisualizandoBebidaState extends State<VisualizandoMaisPedidos> {
+  int _currentIndex = 0;
   int _quantity = 0; // Variável para controlar a quantidade
 
   @override
@@ -48,50 +55,54 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                     ),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        width: 200,
-                        height: 50,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xffffffff),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x3f000000),
-                                offset: Offset(0, 4),
-                                blurRadius: 2,
-                              ),
-                            ],
-                          ),
-                          // CÓDIGO INCREMENTADOR
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              IconButton(
-                                icon: Icon(Icons.remove),
-                                onPressed: () {
-                                  setState(() {
-                                    if (_quantity > 0) {
-                                      _quantity--;
-                                    }
-                                  });
-                                },
-                              ),
-                              Text(
-                                '$_quantity',
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.add),
-                                onPressed: () {
-                                  setState(() {
-                                    _quantity++;
-                                  });
-                                },
-                              ),
-                            ],
+                      Positioned(
+                        top: 300,
+                        left: 0,
+                        child: SizedBox(
+                          width: 200,
+                          height: 50,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Color(0xffffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0x3f000000),
+                                  offset: Offset(0, 4),
+                                  blurRadius: 2,
+                                ),
+                              ],
+                            ),
+                            // CÓDIGO INCREMENTADOR
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                IconButton(
+                                  icon: Icon(Icons.remove),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_quantity > 0) {
+                                        _quantity--;
+                                      }
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  '$_quantity',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.add),
+                                  onPressed: () {
+                                    setState(() {
+                                      _quantity++;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -129,11 +140,9 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                CarrinhoDeCompras(),
-                                          ),
-                                        );
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CarrinhoDeCompras()));
                                       },
                                       child: Text('Ver carrinho'),
                                       style: ElevatedButton.styleFrom(
@@ -186,7 +195,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
           ),
           Positioned(
             left: 37,
-            top: 370,
+            top: 320,
             child: Align(
               child: SizedBox(
                 width: 222,
@@ -194,7 +203,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                 child: Text(
                   'Cerveja Heineken 600ml',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                     height: 1.5599022865,
                     letterSpacing: -0.6,
@@ -206,7 +215,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
           ),
           Positioned(
             left: 37,
-            top: 410,
+            top: 350,
             child: Align(
               child: SizedBox(
                 width: 328,
@@ -226,7 +235,7 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
           ),
           Positioned(
             left: 250,
-            top: 370,
+            top: 320,
             child: Align(
               child: SizedBox(
                 width: 92,
@@ -235,26 +244,6 @@ class _VisualizandoBebidaState extends State<VisualizandoBebida> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Color(0xb200255e),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 250,
-            top: 370,
-            child: Align(
-              child: SizedBox(
-                width: 92,
-                height: 26,
-                child: Text(
-                  '     R\u0024 10,00',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    height: 1.5599023183,
-                    letterSpacing: -0.45,
-                    color: Colors.white,
                   ),
                 ),
               ),

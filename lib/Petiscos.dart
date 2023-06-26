@@ -1,5 +1,3 @@
-// --- PÁGINA QUE VISUALIZO OS MEUS PRODUTOS, OU SEJA, VEJO A LISTA COM OS PRODUTOS --- //
-// --- INTERLIGADA A PÁGINA DE BEBIDA LIST VIEW --- //
 import 'package:flutter/material.dart';
 import 'package:flutter_application_login/BebidasAlcoolicas.dart';
 import 'package:flutter_application_login/VisualizandoBebida.dart';
@@ -7,12 +5,12 @@ import 'package:flutter_application_login/VisualizandoBebida.dart';
 import 'CarrinhoDeCompras.dart';
 import 'MyBottomNavigationBar.dart';
 
-class BebidasAlcoolicas extends StatefulWidget {
+class Petiscos extends StatefulWidget {
   @override
   _PetiscosState createState() => _PetiscosState();
 }
 
-class _PetiscosState extends State<BebidasAlcoolicas> {
+class _PetiscosState extends State<Petiscos> {
   // bottom navigation
   int _currentIndex = 0;
 
@@ -44,17 +42,17 @@ class _PetiscosState extends State<BebidasAlcoolicas> {
         currentIndex: _currentIndex,
         onTap: _onTap,
       ),
-      body: BebidasAlcoolicasListView(),
+      body: PetiscosListView(),
     );
   }
 }
 
-class BebidasAlcoolicasListView extends StatelessWidget {
+class PetiscosListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.all(8.0),
-      itemCount: 6, // Número total de itens
+      itemCount: 10, // Número total de itens
       itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
@@ -73,7 +71,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                 child: Stack(
                   children: [
                     Text(
-                      "   Cerveja Spaten 350ml\n   \n\n",
+                      "   Bandeja de pestiscos\n   \n\n",
                       style: TextStyle(
                         color: Color(0xFF00265F),
                         fontSize: 15,
@@ -92,7 +90,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "RS 10,00",
+                            "RS 30,00",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -111,7 +109,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                     alignment: Alignment(1, 0),
-                    image: AssetImage("assets/images/card${index + 6}.png"),
+                    image: AssetImage("assets/images/card${16}.png"),
                     fit: BoxFit.fitHeight,
                   ),
                 ),

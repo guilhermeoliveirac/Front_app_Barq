@@ -1,18 +1,20 @@
-// --- PÁGINA QUE VISUALIZO OS MEUS PRODUTOS, OU SEJA, VEJO A LISTA COM OS PRODUTOS --- //
-// --- INTERLIGADA A PÁGINA DE BEBIDA LIST VIEW --- //
+// --- PÁGINA QUE LISTA OS MEUS PRODUTOS --- //
+// --- INTERLIGADA A PÁGINA DE BEBIDA ALCOOLICAS, OU SEJA, ELA É CHAMADA NESSA CLASSE E REALIZA O RETORNO --- //
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_login/BebidasAlcoolicas.dart';
 import 'package:flutter_application_login/VisualizandoBebida.dart';
+import 'package:flutter_application_login/VisualizandoBebidaNaoAlcoolica.dart';
 
 import 'CarrinhoDeCompras.dart';
 import 'MyBottomNavigationBar.dart';
 
-class BebidasAlcoolicas extends StatefulWidget {
+class BebidasNaoAlcoolicas extends StatefulWidget {
   @override
   _PetiscosState createState() => _PetiscosState();
 }
 
-class _PetiscosState extends State<BebidasAlcoolicas> {
+class _PetiscosState extends State<BebidasNaoAlcoolicas> {
   // bottom navigation
   int _currentIndex = 0;
 
@@ -44,12 +46,12 @@ class _PetiscosState extends State<BebidasAlcoolicas> {
         currentIndex: _currentIndex,
         onTap: _onTap,
       ),
-      body: BebidasAlcoolicasListView(),
+      body: BebidasNaoAlcoolicasListView(),
     );
   }
 }
 
-class BebidasAlcoolicasListView extends StatelessWidget {
+class BebidasNaoAlcoolicasListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -63,7 +65,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => VisualizandoBebida(),
+                    builder: (context) => VisualizandoBebidaNaoAlcoolica(),
                   ),
                 );
               },
@@ -73,7 +75,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                 child: Stack(
                   children: [
                     Text(
-                      "   Cerveja Spaten 350ml\n   \n\n",
+                      "   Drink de Morango\n   \n\n",
                       style: TextStyle(
                         color: Color(0xFF00265F),
                         fontSize: 15,
@@ -111,7 +113,7 @@ class BebidasAlcoolicasListView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                     alignment: Alignment(1, 0),
-                    image: AssetImage("assets/images/card${index + 6}.png"),
+                    image: AssetImage("assets/images/card${17}.png"),
                     fit: BoxFit.fitHeight,
                   ),
                 ),
